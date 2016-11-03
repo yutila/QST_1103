@@ -16,17 +16,17 @@ import java.util.Scanner;
 public class TimestampTransfer {
 	@SuppressWarnings("resource")
 	public static void main(String[] args){
-		Scanner scanner = new Scanner(System.in);
-		SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Scanner scanner = new Scanner(System.in);//新建一个输入函数
+		SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置输入的时间的格式
+		SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");//设置输出时间的格式
 		while (scanner.hasNext()){
-			String line = scanner.nextLine();
-			Date lineDate = null;
-			long lineTimestamp;
-			try {
-				lineDate = inputFormat.parse(line);
-				lineTimestamp = lineDate.getTime();
-				System.out.println(outputFormat.format(lineDate) + " to " + lineTimestamp);
+			String line = scanner.nextLine();//将输入的时间enter后传入line中
+			Date lineDate = null;//定义一个空的lineDate
+			long lineTimestamp;//lineTimestamp为长整形
+			try {//异常处理
+				lineDate = inputFormat.parse(line);//将输入的时间格式转换后输入linedate
+				lineTimestamp = lineDate.getTime();//从1970年到输入的时间过了多少毫秒
+				System.out.println(outputFormat.format(lineDate) + " to " + lineTimestamp);//输出格式+to+毫秒
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
